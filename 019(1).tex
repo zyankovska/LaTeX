@@ -1,0 +1,171 @@
+\documentclass[11pt, a4paper, onecolumn, twoside]{report}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+\title{Środowisko programisty}
+\author{Zlata Yankovska}
+\date{\today}
+
+\pagestyle{fancy}
+\fancyhead[R]{cos}
+\fancyfoot[R]{}
+
+\begin{document}
+
+\begin{titlepage}
+\maketitle
+\end{titlepage}
+
+\tableofcontents
+
+\chapter{Linux}
+
+\Large Tematy: \\
+\begin{itemize}
+\item Podstawowe polecenia systemu Linux;
+\item Edytory textowe: vi, emacs;
+\item Skrypty Bash;
+\end{itemize}
+
+\section{Podstawowe polecenia}
+\Large Powłoka\\
+\normalsize Powłoka jest interpreterem poleceń.\\
+\textbf{BASH} (\textit{ang. Bourne Again SHell}) to najbardziej popularna powłoka używana na systemach unixowych, jest też skryptowym językiem programowania.~\cite{bash}\\
+
+\textit{Węcej o Bashu w  \ref{sec:Bash}} \\
+\newpage
+W \ref{tab} jest przedstawiono polecenia \\
+%"prawa" można znaleźć w tablicy \ref{tab:Prawa}
+"prawa" można znaleźć w tablicy 1.2 \\
+\begin{table}
+\begin{tabular}{||c||c||}
+\hline\hline
+\Large Polecenie & \Large Komenda\\\hline\hline
+&\\
+Przerwanie procesu & \textbf{CTRL-C} \\
+Login urzytkownika & \textbf{who}/\textbf{whoami} \\
+Nazwa bierzącego katalogu & \textbf{pwd} \\
+Zmiana katalogu & \textbf{cd} \\
+Zawartość katalogu & \textbf{ls} \\
+Tworzenie pliku & \textbf{touch \textit{"nazwa"}} \\
+Tworzenie katalogu & \textbf{mkdir \textit{"nazwa"}} \\
+Usuwanie pliku & \textbf{rm \textit{"nazwa"}} \\
+Usuwanie katalogu & \textbf{rmdir \textit{"nazwa"}} \\
+Kopiowanie pliku & \textbf{cp \textit{"nazwa pliku"}\textit{"nazwa nowego pliku"}} \\
+Kopiowanie katalogu & \textbf{cp -R \textit{"nazwa katalogu"}\textit{"nazwa nowego katalogu"}}\\
+Zmiana nazwy & \textbf{mv \textit{"stara nazwa"}\textit{"nowa nazwa"}} \\
+Przeniesienie pliku & \textbf{mv \textit{"ścieżka do pliku"}\textit{"nowa ścieżka do pliku"}} \\
+Zmiana praw dostępu & \textbf{chmod} "prawa"\textbf{\textit{"nazwa pliku"}} \\
+ & \\\hline\hline
+\end{tabular}
+\label{tab}
+\caption{Polecenia}
+\end{table}
+
+\begin{table}
+\begin{tabular}{c|c}
+Znak & Wykonanie \\\hline
++ & \textbf{dodanie prawa}\\
+- &  \textbf{odebranie prawa}\\
+= & \textbf{ustalenie całego zestawu}\\
+\hline
+u & \textbf{właściciel} (=user)\\
+g & \textbf{grupa} (=group)\\
+o & \textbf{pozostali} (=other)\\
+\hline
+r=4 & \textbf{prawo do czytania} (=read)\\
+w=2 & \textbf{prawo do pisania} (=write)\\
+x=1 & \textbf{prawo do wykonywania} (=execute)\\
+\hline
+\end{tabular}
+%\label{tab:Prawa}
+\caption{Prawa dostępu}
+\end{table}
+
+\Large Przykłady zmiany praw dostępu \\
+\normalsize
+\textbf{chmod u+x plik1} \textit{- nadanie użytkownikowi prawa wykonywania}\\
+\textbf{chmod o-r plik1} \textit{- odebranie pozostałym prawa czytania}\\
+\textbf{chmod go-rwx plik1} \textit{- odebranie grupie i innym wszystkich praw}\\
+\textbf{chmod 604 plik1} \textit{= użytkownik ma prawa do czytania i pisania; grupy nie mają żadnych praw; pozostali mają prawa do czytania~}
+
+\section{Edytory textowe}
+\Large VI\\
+\normalsize  vi – jest mały; jest częścią środowiska uniksowego\\
+\begin{itemize}
+\item Vi to wyłącznie edytor tekstu
+\item W vi wiele istotnych poleceń jest przypisanych pojedynczym klawiszom
+\item W trakcie pracy dokonuje się przełączania między trybem, w którym wpisanie znaków powoduje wstawienie ich do redagowanego tekstu, a trybem, w którym te same znaki są poleceniami, np. klawisze h, j, k i l służą jako strzałki do poruszania się po tekście. ~
+\item Vi również identyfikuje typ pliku i przechodzi do odpowiedniego trybu, w którym rozpoznaje składnię języka i pomaga rozróżnić poszczególne słowa.~ \\
+\textit{Materiały wziąte z \cite{Pani}}
+\end{itemize}
+
+\section{Programowanie w Bashu}
+\label{sec:Bash}
+\Large Skrypt
+\normalsize 
+\begin{itemize}
+\item Skrypt to niekompilowany tekstowy plik wykonywalny, zawierający jakieś polecenia systemowe oraz polecenia sterujące jego wykonaniem (instrukcje, pętle itp.) ~
+\item Skrypt wykonywany jest tylko i wyłącznie przez interpreter (tutaj /bin/bash), który tłumaczy polecenia zawarte w skrypcie na język zrozumiały dla procesora ~ \\
+\textit{Materiały wziąte z \cite{Pani}}
+\end{itemize}
+\Large Pierwszy program \\
+\normalsize Sprobujemy napisać swój pierwszy skrypt, który wypisze "Hello, world". ~ \\
+\\
+\emph {\Large !/bin/bash \\
+echo "Hello world"} \\
+
+\chapter{\LaTeX}
+\section{Tworzenie dokumentów}
+\Large Przykład
+\normalsize 
+\textbf{\\documentclass}[a4paper,12pt]\{article\}
+\textbf{\\usepackage}[latin2]\{inputenc\}
+\textbf{\\usepackage}[T1]\{fontenc\} 
+\textbf{\\usepackage}\{times\}
+\textbf{\\title}\{Tytuł\}
+\textbf{\\author}\{Autor\}
+\textbf{\\begin}\{document\} 
+\textbf{\\maketitle}
+\textbf{\\noindent }
+\\\large Jakaś treść \normalsize
+\textbf {\\end}\{document\} \\\\
+\textit{Materiały wziąte z \cite{Pani}}
+
+
+\section{Wyrażenia matematyczne}
+\Large Przykłady wyrażeń matematycznych
+
+$$a\equiv_{11} b$$
+\\
+$$\underbrace{1+1+\overbrace{1+\ldots +1}\limits^{10}}\limits_{20}$$
+\\
+$$\bigcup\limits^{n}_{s=1} A_s = A_1 \cup A_2 \cup \ldots \cup A_n$$
+\\
+$$\frac{\frac{1}{x+y}-1}{a+b+c}$$
+\\
+$$\sum\limits^{\infty}_{n=1} \left( \left\lfloor \frac{1}{\sqrt{n}+2} \right\rfloor \right)$$
+\\
+$${n \choose k}= {n-1 \choose k-1} + {n-1 \choose k}$$
+\\
+$$\prod\limits^{n+1}_{i=1} a_i = \prod\limits^{n}_{i=1} a_i \cdot a_{i+1}$$
+\normalsize
+\\
+\begin{figure}[ht]
+\begin{center}
+\includegraphics {/home/LABPK/zyankovska/Obrazy/latex.png}
+\end{center}
+\end{figure}
+
+\begin{thebibliography}{9}
+\bibitem{bash}
+C. Albing; JP Vossen; C. Newham, \textit{Bash receptury}, Helion, 2008.
+\bibitem{[2]}
+T. Oetiker; H. Partle; I. Hyna; E. Schlegl, \textit{Nie za krótkie wprowadzenie do systemu LaTeX2e}, 2006.
+\bibitem{[3]}
+A.Robbins; N. H. F. Beebe, \textit{Programowanie skryptów powloki}, Helion, 2005.
+\bibitem{Pani} Prezentacji z wykładu Pani E.Lubeckiej :)
+\end{thebibliography}
+\end{document}
